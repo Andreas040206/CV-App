@@ -2,50 +2,71 @@ import "./CV-styles.css";
 import { useState } from "react";
 
 const ViewCV = ({ info }) => {
-  return <div></div>;
+  return <div className="ViewCV-con"></div>;
 };
 
 const CostumizeBoard = ({ info, infoHandlerFn }) => {
   const eduEl = info.edu.map((edu) => (
     // Making sure that react knows what element is what on reload
-    <div key={edu.id}>
-      <input
-        type="text"
-        value={edu.school}
-        onChange={(e) => {
-          eduPropsOnChange(e, edu.id, "school");
-        }}
-      />
-      <input
-        type="text"
-        value={edu.degree}
-        onChange={(e) => {
-          eduPropsOnChange(e, edu.id, "degree");
-        }}
-      />
-      <input
-        type="text"
-        value={edu.startDate}
-        onChange={(e) => {
-          eduPropsOnChange(e, edu.id, "startDate");
-        }}
-      />
-      <input
-        type="text"
-        value={edu.endDate}
-        onChange={(e) => {
-          eduPropsOnChange(e, edu.id, "endDate");
-        }}
-      />
-      <input
-        type="text"
-        value={edu.loc}
-        onChange={(e) => {
-          eduPropsOnChange(e, edu.id, "loc");
-        }}
-      />
-      <div>
+    <div key={edu.id} className="exp-con flex-col">
+      <div className="input-con flex-row">
+        <label className="info-label">School: </label>
+        <input
+          className="info-input"
+          type="text"
+          value={edu.school}
+          onChange={(e) => {
+            eduPropsOnChange(e, edu.id, "school");
+          }}
+        />
+      </div>
+      <div className="input-con flex-row">
+        <label className="info-label">Degree: </label>
+        <input
+          className="info-input"
+          type="text"
+          value={edu.degree}
+          onChange={(e) => {
+            eduPropsOnChange(e, edu.id, "degree");
+          }}
+        />
+      </div>
+      <div className="input-con flex-row">
+        <label className="info-label">Start Date: </label>
+        <input
+          className="info-input"
+          type="text"
+          value={edu.startDate}
+          onChange={(e) => {
+            eduPropsOnChange(e, edu.id, "startDate");
+          }}
+        />
+      </div>
+      <div className="input-con flex-row">
+        <label className="info-label">End Date: </label>
+        <input
+          className="info-input"
+          type="text"
+          value={edu.endDate}
+          onChange={(e) => {
+            eduPropsOnChange(e, edu.id, "endDate");
+          }}
+        />
+      </div>
+      <div className="input-con flex-row">
+        <label className="info-label">School: </label>
+        <input
+          className="info-input"
+          type="text"
+          value={edu.loc}
+          onChange={(e) => {
+            eduPropsOnChange(e, edu.id, "loc");
+          }}
+        />
+      </div>
+      <div className="del-btn-con flex-row">
         <button
+          className="del-btn"
           onClick={() => {
             deleteEdu(edu.id);
           }}
@@ -101,44 +122,65 @@ const CostumizeBoard = ({ info, infoHandlerFn }) => {
 
   const expEl = info.exp.map((exp) => (
     // Making sure that react knows what element is what on reload
-    <div key={exp.id}>
-      <input
-        type="text"
-        value={exp.company}
-        onChange={(e) => {
-          expPropsOnChange(e, exp.id, "company");
-        }}
-      />
-      <input
-        type="text"
-        value={exp.position}
-        onChange={(e) => {
-          expPropsOnChange(e, exp.id, "position");
-        }}
-      />
-      <input
-        type="text"
-        value={exp.startDate}
-        onChange={(e) => {
-          expPropsOnChange(e, exp.id, "startDate");
-        }}
-      />
-      <input
-        type="text"
-        value={exp.endDate}
-        onChange={(e) => {
-          expPropsOnChange(e, exp.id, "endDate");
-        }}
-      />
-      <input
-        type="text"
-        value={exp.loc}
-        onChange={(e) => {
-          expPropsOnChange(e, exp.id, "loc");
-        }}
-      />
-      <div>
+    <div key={exp.id} className="exp-con flex-col">
+      <div className="input-con flex-row">
+        <label className="info-label">Company: </label>
+        <input
+          className="info-input"
+          type="text"
+          value={exp.company}
+          onChange={(e) => {
+            expPropsOnChange(e, exp.id, "company");
+          }}
+        />
+      </div>
+      <div className="input-con flex-row">
+        <label className="info-label">Posistion: </label>
+        <input
+          className="info-input"
+          type="text"
+          value={exp.position}
+          onChange={(e) => {
+            expPropsOnChange(e, exp.id, "position");
+          }}
+        />
+      </div>
+      <div className="input-con flex-row">
+        <label className="info-label">Start date: </label>
+        <input
+          className="info-input"
+          type="text"
+          value={exp.startDate}
+          onChange={(e) => {
+            expPropsOnChange(e, exp.id, "startDate");
+          }}
+        />
+      </div>
+      <div className="input-con flex-row">
+        <label className="info-label">End date: </label>
+        <input
+          className="info-input"
+          type="text"
+          value={exp.endDate}
+          onChange={(e) => {
+            expPropsOnChange(e, exp.id, "endDate");
+          }}
+        />
+      </div>
+      <div className="input-con flex-row">
+        <label className="info-label">Location: </label>
+        <input
+          className="info-input"
+          type="text"
+          value={exp.loc}
+          onChange={(e) => {
+            expPropsOnChange(e, exp.id, "loc");
+          }}
+        />
+      </div>
+      <div className="del-btn-con flex-row">
         <button
+          className="del-btn"
           onClick={() => {
             deleteExp(exp.id);
           }}
@@ -200,44 +242,66 @@ const CostumizeBoard = ({ info, infoHandlerFn }) => {
   };
 
   return (
-    <div>
-      <div>
-        <input
-          type="text"
-          value={info.name}
-          onChange={(e) => {
-            impInfoHandler(e, "name");
-          }}
-        />
-        <input
-          type="tel"
-          value={info.tlf}
-          onChange={(e) => {
-            impInfoHandler(e, "tlf");
-          }}
-        />
-        <input
-          type="mail"
-          value={info.mail}
-          onChange={(e) => {
-            impInfoHandler(e, "mail");
-          }}
-        />
-        <input
-          type="text"
-          value={info.loc}
-          onChange={(e) => {
-            impInfoHandler(e, "loc");
-          }}
-        />
+    <div className="custom-con flex-col">
+      <div className="flex-col input-list">
+        <div className="input-con flex-row al-cen">
+          <label className="info-label">Name: </label>
+          <input
+            className="info-input"
+            type="text"
+            value={info.name}
+            onChange={(e) => {
+              impInfoHandler(e, "name");
+            }}
+          />
+        </div>
+        <div className="input-con flex-row al-cen">
+          <label className="info-label">Tel: </label>
+          <input
+            className="info-input"
+            type="tel"
+            value={info.tlf}
+            onChange={(e) => {
+              impInfoHandler(e, "tlf");
+            }}
+          />
+        </div>
+        <div className="input-con flex-row al-cen">
+          <label className="info-label">Mail: </label>
+          <input
+            className="info-input"
+            type="mail"
+            value={info.mail}
+            onChange={(e) => {
+              impInfoHandler(e, "mail");
+            }}
+          />
+        </div>
+        <div className="input-con flex-row al-cen">
+          <label className="info-label">Location: </label>
+          <input
+            className="info-input"
+            type="text"
+            value={info.loc}
+            onChange={(e) => {
+              impInfoHandler(e, "loc");
+            }}
+          />
+        </div>
       </div>
-      <div>
-        <label>Edu</label>
-        <button onClick={addNewEdu}>+</button>
-        <div>{eduEl}</div>
-        <label>Exp</label>
-        <button onClick={addNewExp}>+</button>
+      <div className="flex-col input-list">
+        <label className="label-header">Education</label>
+        {eduEl}
+        <button className="addbtn" onClick={addNewEdu}>
+          +
+        </button>
+      </div>
+      <div className="flex-col input-list">
+        <label className="label-header">Experience</label>
         {expEl}
+        <button className="addbtn" onClick={addNewExp}>
+          +
+        </button>
       </div>
     </div>
   );
@@ -259,7 +323,7 @@ export const CVcomp = () => {
   };
 
   return (
-    <div>
+    <div className="CV-con flex-row">
       <CostumizeBoard info={info} infoHandlerFn={infoHandler} />
       <ViewCV info={info} />
     </div>
