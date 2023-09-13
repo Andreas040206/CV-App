@@ -2,7 +2,58 @@ import "./CV-styles.css";
 import { useState } from "react";
 
 const ViewCV = ({ info }) => {
-  return <div className="ViewCV-con"></div>;
+  const eduEl = info.edu.map((edu) => {
+    return (
+      <div key={edu.id} className="exp-grid">
+        <div>
+          <span className="date-text">{edu.startDate} - </span>
+          <span className="date-text"> {edu.endDate}</span>
+        </div>
+        <div className="school-text">{edu.school}</div>
+        <div className="loc-text">{edu.loc}</div>
+        <div>{edu.degree}</div>
+      </div>
+    );
+  });
+
+  const expEl = info.exp.map((exp) => {
+    return (
+      <div key={exp.id} className="exp-grid">
+        <div>
+          <span className="date-text">{exp.startDate} - </span>
+          <span className="date-text"> {exp.endDate}</span>
+        </div>
+        <div className="school-text">{exp.company}</div>
+        <div className="loc-text">{exp.loc}</div>
+        <div>{exp.position}</div>
+      </div>
+    );
+  });
+
+  return (
+    <div className="ViewCV-con">
+      <header className="viewCV-header-con flex-col cen">
+        <div className="flex-row cen">
+          <span className="view-header">{info.name}</span>
+        </div>
+        <div className="view-header-text-con flex-row cen">
+          <span className="view-header-text">Tel: {info.tlf}</span>
+          <span className="view-header-text">Mail: {info.mail}</span>
+          <span className="view-header-text">Location: {info.loc}</span>
+        </div>
+      </header>
+      <div className="flex-col view-exp-con">
+        {info.edu.length < 1 ? undefined : (
+          <div className="exp-header">Education</div>
+        )}
+        {eduEl}
+        {info.exp.length < 1 ? undefined : (
+          <div className="exp-header">Professional Experience</div>
+        )}
+        {expEl}
+      </div>
+    </div>
+  );
 };
 
 const CostumizeBoard = ({ info, infoHandlerFn }) => {
@@ -54,7 +105,7 @@ const CostumizeBoard = ({ info, infoHandlerFn }) => {
         />
       </div>
       <div className="input-con flex-row">
-        <label className="info-label">School: </label>
+        <label className="info-label">Location: </label>
         <input
           className="info-input"
           type="text"
@@ -241,8 +292,50 @@ const CostumizeBoard = ({ info, infoHandlerFn }) => {
     infoHandlerFn(newInfo);
   };
 
+  const loadExample = () => {
+    infoHandlerFn({
+      name: "Andreas Skakkebaek-Kruse",
+      loc: "Denmark, Risskov",
+      tlf: "(+45) 44 30 22 34",
+      mail: "example@mail.com",
+      edu: [
+        {
+          id: 1,
+          school: "Standford",
+          degree: "Computer Science",
+          startDate: "12/9/2018",
+          endDate: "17/7/2021",
+          loc: "England, Standford",
+        },
+      ],
+      exp: [
+        {
+          id: 1,
+          company: "Linkicon",
+          position: "Computer programmer",
+          startDate: "12/09/2022",
+          endDate: "10/11/2023",
+          loc: "New York",
+        },
+        {
+          id: 2,
+          company: "Netflix",
+          position: "System team adminestrator",
+          startDate: "10/11/2023",
+          endDate: "present",
+          loc: "Calfornia",
+        },
+      ],
+    });
+  };
+
   return (
     <div className="custom-con flex-col">
+      <div className="flex-col input-list">
+        <button className="loadExample-btn" onClick={loadExample}>
+          Load example
+        </button>
+      </div>
       <div className="flex-col input-list">
         <div className="input-con flex-row al-cen">
           <label className="info-label">Name: </label>

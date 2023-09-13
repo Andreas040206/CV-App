@@ -2,16 +2,12 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 50px;
-  margin-top: 10vh;
+  margin-top: 5vh;
   padding-bottom: 5vh;
+  overflow: hidden;
 }
 
-.ViewCV-con {
-  width: 600px;
-  height: 800px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.338);
-  background-color: #fff;
-}
+/* Customizeboard styles */
 
 .custom-con {
   width: 400px;
@@ -83,4 +79,81 @@
 .del-btn:hover {
   background-color: rgb(255, 82, 82);
   color: white;
+}
+
+.loadExample-btn {
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* View CV styles */
+
+.ViewCV-con {
+  width: 650px;
+  height: 900px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.338);
+  background-color: #fff;
+}
+
+.viewCV-header-con {
+  height: 150px;
+  background-color: rgb(76, 76, 76);
+  gap: 5px;
+}
+
+.view-header {
+  color: white;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.view-header-text {
+  color: white;
+  font-size: 16px;
+  margin-left: 0px;
+  white-space: nowrap;
+}
+
+.view-header-text-con {
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 8px;
+  padding: 0px 40px;
+}
+
+.view-exp-con {
+  padding: 20px;
+  gap: 20px;
+}
+
+.exp-header {
+  background-color: rgba(128, 128, 128, 0.342);
+  text-align: center;
+  padding: 5px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.exp-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 20px;
+}
+
+.date-text {
+  font-size: 15px;
+}
+
+.school-text {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.loc-text {
+  font-size: 15px;
+  margin-top: auto;
 }
